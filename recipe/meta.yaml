@@ -10,12 +10,13 @@ source:
   sha256: 3053e7467b5585ad852f6a56e78e28352653943e7249ad5e5174d4744d174966
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   
 requirements:
   build:
     - automake
+    - make
     - libtool
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -32,7 +33,7 @@ test:
 
 about:
   home: https://4ti2.github.io/
-  license: GPLv2+
+  license: GPL-2.0-or-later
   license_file: COPYING
   summary: 'A software package for algebraic, geometric and combinatorial problems on linear spaces'
   doc_url: https://4ti2.github.io/
