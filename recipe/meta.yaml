@@ -32,7 +32,7 @@ test:
 
 about:
   home: https://4ti2.github.io/
-  license: GPLv2+
+  license: GPL-2.0-or-later
   license_file: COPYING
   summary: 'A software package for algebraic, geometric and combinatorial problems on linear spaces'
   doc_url: https://4ti2.github.io/
