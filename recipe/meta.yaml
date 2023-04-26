@@ -1,5 +1,5 @@
 {% set name = "4ti2" %}
-{% set version = "1.6.9" %}
+{% set version = "1.6.10" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/4ti2/4ti2/releases/download/Release_{{ version.replace(".", "_") }}/4ti2-{{ version }}.tar.gz
-  sha256: 3053e7467b5585ad852f6a56e78e28352653943e7249ad5e5174d4744d174966
+  sha256: f7c191beb14246b643e4fd5b18b53d9966693b9e6d3a569441a0e3ca14b1a86b
 
 build:
-  number: 1
-  skip: True  # [win]
-  
+  number: 0
+  skip: true  # [win]
+
 requirements:
   build:
     - automake
@@ -35,7 +35,7 @@ about:
   home: https://4ti2.github.io/
   license: GPL-2.0-or-later
   license_file: COPYING
-  summary: 'A software package for algebraic, geometric and combinatorial problems on linear spaces'
+  summary: A software package for algebraic, geometric and combinatorial problems on linear spaces
   doc_url: https://4ti2.github.io/
   dev_url: https://github.com/4ti2/4ti2
 
