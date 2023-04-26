@@ -1,11 +1,11 @@
-About 4ti2
-==========
+About 4ti2-feedstock
+====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/4ti2-feedstock/blob/main/LICENSE.txt)
 
 Home: https://4ti2.github.io/
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/4ti2-feedstock/blob/main/LICENSE.txt)
 
 Summary: A software package for algebraic, geometric and combinatorial problems on linear spaces
 
