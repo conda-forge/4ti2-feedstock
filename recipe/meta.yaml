@@ -10,7 +10,7 @@ source:
   sha256: f7c191beb14246b643e4fd5b18b53d9966693b9e6d3a569441a0e3ca14b1a86b
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -22,9 +22,6 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - gmp
-    - glpk
-  run:
-    # We link against glpk which does not specify a run_exports so we need to add it explicitly here, see https://github.com/conda-forge/glpk-feedstock/pull/32
     - glpk
 
 test:
