@@ -20,6 +20,7 @@ requirements:
     - libtool
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
   host:
     - gmp
     - glpk
