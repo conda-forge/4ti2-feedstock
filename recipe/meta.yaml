@@ -30,7 +30,7 @@ requirements:
 
 test:
   commands:
-    - gensymm --version
+    - gensymm --version  # [build_platform == target_platform]
 
 about:
   home: https://4ti2.github.io/
