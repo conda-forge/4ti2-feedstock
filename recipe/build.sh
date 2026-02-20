@@ -2,6 +2,10 @@
 
 export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
 
+if [[ "$target_platform" == "win-64" ]]; then
+  export PREFIX=${PREFIX}/Library
+fi
+
 # The CHECK_TRAPV macro uses AC_TRY_RUN without a cross-compilation fallback,
 # causing configure to error out during cross-compilation. Patch configure to
 # skip those runtime checks (defaulting to trapv=no, which is safe).
