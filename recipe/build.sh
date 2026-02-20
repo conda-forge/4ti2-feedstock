@@ -4,6 +4,13 @@ export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
 
 if [[ "$target_platform" == "win-64" ]]; then
   export PREFIX=${PREFIX}/Library
+  # Ensure the C++ compiler and preprocessor are found
+  if [[ -n "$CXX" ]]; then
+    export CXXCPP="$CXX -E"
+  elif [[ -n "$CC" ]]; then
+    export CXX="${CC/gcc/g++}"
+    export CXXCPP="$CXX -E"
+  fi
 fi
 
 # The CHECK_TRAPV macro uses AC_TRY_RUN without a cross-compilation fallback,
