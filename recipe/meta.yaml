@@ -11,16 +11,16 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
 
 requirements:
   build:
-    - automake
-    - make
-    - libtool
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ stdlib('c') }}
+    - {{ compiler("c") }}          # [unix]
+    - {{ stdlib("c") }}            # [unix]
+    - {{ compiler("m2w64_c") }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ posix }}base        # [build_platform.startswith("win-")]
+    - {{ posix }}diffutils   # [build_platform.startswith("win-")]
+    - {{ posix }}make
   host:
     - gmp
     - glpk
