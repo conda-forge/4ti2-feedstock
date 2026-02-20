@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/4ti2/4ti2/releases/download/Release_{{ version.replace(".", "_") }}/4ti2-{{ version }}.tar.gz
   sha256: 1bc340173f93ca4abd30ea962118bd5057fdedf7e79c71d2a0c4cc9569f8b0b1
+  patches:
+    - 0001-include-ctime-in-Heuristics.patch
 
 build:
   number: 0
