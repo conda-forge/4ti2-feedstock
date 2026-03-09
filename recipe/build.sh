@@ -4,9 +4,6 @@ export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
 
 if [[ "$target_platform" == "win-64" ]]; then
   export PREFIX=${PREFIX}/Library
-  # The m2w64 toolchain sets CC but not CXX; configure defaults CXXCPP
-  # to /lib/cpp which doesn't exist on Windows. Explicitly set CXX and CXXCPP.
-  export CXX="${HOST}-g++"
   export CXXCPP="${CPP}"
 fi
 
