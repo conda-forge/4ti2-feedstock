@@ -7,7 +7,7 @@ if [[ "$target_platform" == "win-64" ]]; then
   # The m2w64 toolchain sets CC but not CXX; configure defaults CXXCPP
   # to /lib/cpp which doesn't exist on Windows. Explicitly set CXX and CXXCPP.
   export CXX="${HOST}-g++"
-  export CXXCPP="${CXX} -E"
+  export CXXCPP="${CPP}"
 fi
 
 # The CHECK_TRAPV macro uses AC_TRY_RUN without a cross-compilation fallback,
