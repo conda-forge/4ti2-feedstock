@@ -1,0 +1,10 @@
+--- a/src/zsolve/Heuristics.hpp
++++ b/src/zsolve/Heuristics.hpp
+@@ -25,6 +25,7 @@
+ #include <fstream>
+ #include <map>
+ #include <cstdlib>
++#include <ctime>
+ 
+ #include "zsolve/BitSet.h"
+ #include "zsolve/LinearSystem.hpp"

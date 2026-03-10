@@ -1,5 +1,6 @@
 {% set name = "4ti2" %}
-{% set version = "1.6.13" %}
+{% set version = "1.6.15" %}
+{% set posix = "m2-" if build_platform.startswith("win-") else '' %}
 
 package:
   name: {{ name }}
@@ -7,25 +8,26 @@ package:
 
 source:
   url: https://github.com/4ti2/4ti2/releases/download/Release_{{ version.replace(".", "_") }}/4ti2-{{ version }}.tar.gz
-  sha256: f59e1ea5563d2188b0e8ff61a8584845a899e3e54a570305f6f99b26c9b1e6b5
+  sha256: 070e639398fda1a4665b3291e5ea80f2ba280d9bffd50656ad8482d471b96965
+  patches:
+    - 0001-include-ctime-in-Heuristics.patch
 
 build:
   number: 0
-  skip: true  # [win]
 
 requirements:
   build:
-    - automake
-    - make
-    - libtool
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ stdlib('c') }}
+    - {{ compiler("c") }}          # [unix]
+    - {{ compiler("cxx") }}        # [unix]
+    - {{ stdlib("c") }}            # [unix]
+    - {{ compiler("m2w64_c") }}    # [win]
+    - {{ compiler("m2w64_cxx") }}                   # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ posix }}base        # [build_platform.startswith("win-")]
+    - {{ posix }}diffutils   # [build_platform.startswith("win-")]
+    - {{ posix }}make
   host:
     - gmp
-    - glpk
-  run:
-    # We link against glpk which does not specify a run_exports so we need to add it explicitly here, see https://github.com/conda-forge/glpk-feedstock/pull/32
     - glpk
 
 test:
