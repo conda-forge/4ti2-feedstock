@@ -5,6 +5,8 @@ export CFLAGS="${CFLAGS} -D_GNU_SOURCE"
 if [[ "$target_platform" == "win-64" ]]; then
   export PREFIX=${PREFIX}/Library
   export CXXCPP="${CPP}"
+  export HOST="${CONDA_TOOLCHAIN_HOST}"
+  export BUILD="${CONDA_TOOLCHAIN_BUILD}"
 fi
 
 # The CHECK_TRAPV macro uses AC_TRY_RUN without a cross-compilation fallback,
@@ -14,7 +16,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   sed -i.bak 's/as_fn_error \$? "cannot run test program while cross compiling/true "cannot run test program while cross compiling/g' configure
 fi
 
-./configure --prefix=$PREFIX --host=$HOST --build=$BUILD --enable-shared --disable-static
+./configure --prefix="$PREFIX" --host="$HOST" --build="$BUILD" --with-gmp="$PREFIX" --with-glpk="$PREFIX" --enable-shared --disable-static
 make -j${CPU_COUNT}
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" && "$CROSSCOMPILING_EMULATOR" != "" ]]; then
   make check -j${CPU_COUNT}
