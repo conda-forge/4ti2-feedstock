@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: 4ti2
-  version: "1.6.15"
+  version: "1.6.16"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/4ti2/4ti2/releases/download/Release_${{ version | replace(".", "_") }}/4ti2-${{ version }}.tar.gz
-  sha256: 070e639398fda1a4665b3291e5ea80f2ba280d9bffd50656ad8482d471b96965
+  sha256: a45629835ac138bb17896c509278b956c11917ec58e57165a2ee0c54ed0307cb
   patches:
     - 0001-include-ctime-in-Heuristics.patch
 
